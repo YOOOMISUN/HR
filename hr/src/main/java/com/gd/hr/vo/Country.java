@@ -3,8 +3,8 @@ package com.gd.hr.vo;
 import lombok.Data;
 
 @Data
-public class Countries {
-	private int countryId;
+public class Country {
+	private String countryId;
 	private String countryName;
-	private String regionId;
+	private int regionId;
 }

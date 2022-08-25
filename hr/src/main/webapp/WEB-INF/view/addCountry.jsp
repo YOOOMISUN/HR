@@ -19,17 +19,26 @@
 <div>
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
-	<form method="post" action="${pageContext.request.contextPath}/addRegion">
+
+	<form method="post" action="${pageContext.request.contextPath}/addCountry">
+	<div>
+		Region Id / Name : 
+		<select name="regionId">
+			<c:forEach var="region" items="${regionList}">
+				<option value="${region.regionId}">${region.regionId} ) ${region.regionName}</option>
+			</c:forEach>
+		</select>
+	</div>
 		<div>
-			Region Id : 
-			<input type="text" name="regionId">
+			Country Id : 
+			<input type="text" name="countryId">
 		</div>
 		<div>
-			Region Name : 
-			<input type="text" name="regionName">
+			Country Name : 
+			<input type="text" name="countryName">
 		</div>
 		<div>
-			<button type="submit" class="btn btn-info">Region 추가</button>
+			<button type="submit" class="btn btn-info">Country 추가</button>
 		</div>
 	</form>
 	

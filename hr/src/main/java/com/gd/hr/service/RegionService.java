@@ -40,4 +40,10 @@ public class RegionService implements IRegionService {
 		return regionMapper.updateRegion(regionId);
 	}
 
+	@Override
+	public Region getRegion(int regionId) {
+
+		return regionMapper.selectRegionOne(regionId);
+	}
+
 }

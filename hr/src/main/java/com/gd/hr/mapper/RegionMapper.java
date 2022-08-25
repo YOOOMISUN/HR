@@ -10,7 +10,9 @@ import com.gd.hr.vo.Region;
 public interface RegionMapper {
 	List<Region> selectRegionList();
 	int insertRegion(Region region);
-	int updateRegion(Region regionId);
+	int updateRegion(Region regionId);		// 수정 action
+	Region selectRegionOne(int regionId);	// 상세보기, 수정 form
+	
 	int deleteRegion(int regionId);
 	
 }

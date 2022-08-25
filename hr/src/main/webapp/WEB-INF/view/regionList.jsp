@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Region List</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -24,8 +24,8 @@
 </div>
 	<table style=" margin-left:auto; margin-right:auto; text-align:center;" class="table table-bordered">
 		<tr>
-			<th>regionId</th>
-			<th>regionName</th>
+			<th>Region Id</th>
+			<th>Region Name</th>
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>

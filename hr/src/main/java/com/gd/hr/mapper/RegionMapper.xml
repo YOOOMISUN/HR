@@ -10,10 +10,13 @@
 		INSERT INTO regions(region_id, region_name) VALUES (#{regionId},#{regionName}) 
 	</insert>
 	
-	<update id="updateRegion" parameterType="com.gd.hr.vo.Region">
+	<update id="updateRegion" parameterType="com.gd.hr.vo.Region">		<!-- 수정 action -->
 		UPDATE regions SET region_name=#{regionName} WHERE region_id=#{regionId}
-	</update>
+	</update>		<!-- getRegionNam() -->
 	
+	<select id="selectRegionOne" parameterType="int" resultType="com.gd.hr.vo.Region">		<!-- 수정 form, 상세보기 -->	<!-- resultType : 한 행의 타입만 결정 -->
+		SELECT region_id regionId, region_name regionName FROM regions WHERE region_id = #{regionId}
+	</select>	<!-- regionId : setRegionId(regionId (값)) /  region_id : setRegion_id(region_id) -->
 	
 	<delete	id="deleteRegion" parameterType="int">
 		DELETE FROM regions WHERE region_id= #{regionId}

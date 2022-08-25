@@ -20,14 +20,14 @@
 <div>
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
-	<form method="post" action="${pageContext.request.contextPath}/modifyRegion">
+	<form method="post" action="${pageContext.request.contextPath}/modifyRegion">	<!-- RegionController 수정 form -->
 		<div>
 			region Id : 
 			<input type="text" name="regionId" value="${region.regionId}" readonly>
 		</div>
 		<div>
 			region Name : 
-			<input type="text" name="regionName" value="${region.regionName}" >
+			<input type="text" name="regionName" value="${region.regionName}">
 		</div>
 		<div>
 			<button type="submit" class="btn btn-info">수정하기</button>

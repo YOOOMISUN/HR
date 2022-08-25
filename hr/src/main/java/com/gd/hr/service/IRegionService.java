@@ -9,6 +9,7 @@ public interface IRegionService {
 	
 	int addRegion(Region region);
 	int modifyRegion(Region regionId);
+	Region getRegion(int regionId);
 	int removeRegion(int regionId);
 	
 }

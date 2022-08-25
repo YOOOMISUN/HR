@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Location List</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -19,26 +19,33 @@
 <div>
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
-	<form method="post" action="${pageContext.request.contextPath}/addRegion">
-		<div>
-			Region Id : 
-			<input type="text" name="regionId">
-		</div>
-		<div>
-			Region Name : 
-			<input type="text" name="regionName">
-		</div>
-		<div>
-			<button type="submit" class="btn btn-info">Region 추가</button>
-		</div>
-	</form>
+<div>
+	<a href="${pageContext.request.contextPath}/addLocation" style="text-align:center; float:right;">Location 추가</a>
+</div>
+	<table style=" margin-left:auto; margin-right:auto; text-align:center;" class="table table-bordered">
+		<tr>
+			<th>Location Id</th>
+			<th>Region Name</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
+		<c:forEach var="r" items="${list}">
+			<tr>
+				<td>${r.regionId}</td>
+				<td>${r.regionName}</td>
+				<td><a href="${pageContext.request.contextPath}/modifyLocation?regionId=${r.regionId}&regionName=${r.regionName}">수정</a></td>
+				<td><a href="${pageContext.request.contextPath}/removeLocation?regionId=${r.regionId}">삭제</a></td>
+			</tr>		
+		</c:forEach>
+	</table>
 	
-		<!-- footer include -->
+	<!-- footer include -->
 	<hr>
 	
 	<div>
 		<c:import url="/WEB-INF/view/Inc/footer.jsp"></c:import>
 	</div>
+	
 	
 </body>
 </html>

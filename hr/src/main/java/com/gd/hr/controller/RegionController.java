@@ -20,13 +20,22 @@ public class RegionController {
 	
 	/* 메소드 이름 같은데 파라미터 달라서 오버로딩 */
 	
-	@GetMapping("/addRegion")		// Form
+	@GetMapping("/regionList") 	// 리턴타입이 String 타입이면 뷰가 됨, MedelAndView
+	public String regionList(Model model) {
+		List<Region> list = regionService.getRegionList();
+		model.addAttribute("list",list);	// model => addAttribute를 쓰려고 씀 request.setAttribute("list",list);
+		// System.out.println(list);
+		return "regionList";				// ("regionList").forward(request.response);
+	}
+	
+	// 추가 Form
+	@GetMapping("/addRegion")		
 	public String addRegion() {
 		return "addRegion";
 	}
 	
-	
-	@PostMapping("/addRegion")		// Action			null이면 1
+	// 추가 Action
+	@PostMapping("/addRegion")					
 	public String addRegion(Region region) {		// @RequestParam int regionId = request.getParameter(regionId)
 		System.out.println(region);
 		
@@ -36,15 +45,24 @@ public class RegionController {
 		return "redirect:/regionList";		// regionList로 redirect 
 	}
 	
-	
-	@GetMapping("/regionList") 	// 리턴타입이 String 타입이면 뷰가 됨, MedelAndView
-	public String regionList(Model model) {
-		List<Region> list = regionService.getRegionList();
-		model.addAttribute("list",list);	// model => addAttribute를 쓰려고 씀 request.setAttribute("list",list);
-		// System.out.println(list);
-		return "regionList";				// ("regionList").forward(request.response);
+	// 수정 Form
+	@GetMapping("/modifyRegion")		
+	public String modifyRegion(Model model, @RequestParam(value="regionId") int regionId) {	// 하나의 객체일 경우 : (@RequestParam(value="regionId") int regionId) 사용
+								// @RequestParam(value="regionId") : value 값은 modifyRegion id의 name 값과 같음 / request.getParameter(regionId)로 불러오기
+		Region region = regionService.getRegion(regionId);
+		model.addAttribute("region",region);
+		return "modifyRegion";			// 포워딩
 	}
 	
+	// 수정 Action
+	@PostMapping("/modifyRegion")					
+	public String modifyRegion(Region region) {		// @RequestParam int regionId = request.getParameter(regionId)
+		
+		int row = regionService.modifyRegion(region);
+		System.out.println(row);
+		
+		return "redirect:/regionList";		// regionList로 redirect 
+	}
 	
 	@GetMapping("/removeRegion")			// (@RequestParam(value="regionId", required = false) int regionId)     required = false :  null 값 허용
 	public String removeRegion(@RequestParam(value="regionId") int regionId) {	// @RequestParam int regionId = request.getParameter(regionId)
@@ -52,25 +70,8 @@ public class RegionController {
 		System.out.println(row);
 		
 		return "redirect:/regionList";	
-		
 	}
 	
-	@GetMapping("/modifyRegion")		// Form
-	public String modifyRegion(Model model,Region region) {
-		model.addAttribute("region",region);
-		return "modifyRegion";
-	}
-	
-	
-	@PostMapping("/modifyRegion")		// Action			null이면 1
-	public String modifyRegion(Region region) {		// @RequestParam int regionId = request.getParameter(regionId)
-		System.out.println(region);
-		
-		int row = regionService.modifyRegion(region);
-		System.out.println(row);
-		
-		return "redirect:/regionList";		// regionList로 redirect 
-	}
 	
 }
 

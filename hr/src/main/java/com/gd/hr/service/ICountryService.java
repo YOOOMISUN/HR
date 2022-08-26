@@ -13,4 +13,6 @@ public interface ICountryService {
 	int modiryCountry(Country counryId);
 	Country getCountry(String countryId);
 	int removeCountry(String countryId);
+	
+	List<Country> getCountryIdAndNameList(int regionId);
 }

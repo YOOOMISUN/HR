@@ -14,4 +14,8 @@ public interface CountryMapper {
 	int updateCountry(Country country);
 	Country selectCountryForm(String countryId);
 	int deleteCountry(String countryId);
+	int deleteCountryByRegionId(int regionId);
+	
+	List<Country> selectCountryIdAndNameList(int regionId);		
+	
 }

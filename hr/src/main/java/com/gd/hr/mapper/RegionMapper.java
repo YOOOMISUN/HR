@@ -12,7 +12,6 @@ public interface RegionMapper {
 	int insertRegion(Region region);
 	int updateRegion(Region regionId);		// 수정 action
 	Region selectRegionOne(int regionId);	// 상세보기, 수정 form
-	
 	int deleteRegion(int regionId);
 	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gd.hr.mapper.CountryMapper;
 import com.gd.hr.mapper.RegionMapper;
 import com.gd.hr.vo.Region;
 
@@ -15,6 +16,7 @@ public class RegionService implements IRegionService {
 	// DI : 객체를 직접 생성하지 않고 스프링 프레임워크 통해 (bean 객체 ) 주입
 	// Interface 타입을 사용 => 구체적인 클래스 네임을 안나오게 하는것 (디커플링, 느슨하게 하기 위해서)
 	@Autowired RegionMapper regionMapper;	 // 인터페이스를 사용해서 주입
+	@Autowired CountryMapper countryMapper;
 	
 	@Override
 	public List<Region> getRegionList() {
@@ -30,8 +32,11 @@ public class RegionService implements IRegionService {
 
 	@Override
 	public int removeRegion(int regionId) {
-	
-		return regionMapper.deleteRegion(regionId);
+		countryMapper.deleteCountryByRegionId(regionId);
+		int row = regionMapper.deleteRegion(regionId);
+		// 디버깅
+		System.out.println("row : " + row);
+		return row;
 	}
 
 	@Override
@@ -45,5 +50,6 @@ public class RegionService implements IRegionService {
 
 		return regionMapper.selectRegionOne(regionId);
 	}
+	
 
 }

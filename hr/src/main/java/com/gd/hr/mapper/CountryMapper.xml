@@ -14,10 +14,20 @@
 	</update>
 
 	<select id="selectCountryForm" parameterType="string" resultType="com.gd.hr.vo.Country">		<!-- 수정 form, 상세보기 -->	<!-- resultType : 한 행의 타입만 결정 -->
-		SELECT country_id CountryId, country_name CountryName, region_id regionId FROM countries WHERE country_id= #{countryId}
+		SELECT country_id countryId, country_name countryName, region_id regionId FROM countries WHERE country_id= #{countryId}
 	</select>	
 
 	<delete id="deleteCountry" parameterType="string">
 		DELETE FROM countries WHERE country_id=#{countryId}
 	</delete>
+	
+	<delete id="deleteCountryByRegionId" parameterType="int">
+		DELETE FROM countries WHERE region_id = #{regionId}
+	</delete>
+	
+	
+	<select id="selectCountryIdAndNameList" parameterType="int" resultType="com.gd.hr.vo.Country">		<!-- 수정 form, 상세보기 -->	<!-- resultType : 한 행의 타입만 결정 -->
+		SELECT country_id countryId, country_name countryName FROM countries WHERE region_id = #{region_id}
+	</select>	
+	
 </mapper>

@@ -48,11 +48,9 @@ public class CountryController {
 	
 	// 수정 Form
 	@GetMapping("/modifyCountry")		
-	public String modifyCountry(Model model, @RequestParam(value="countryId") String countryId) {
+	public String modifyCountry(Model model, Country country) {
 		List<Region> regionList = countryService.addCountryForm();
 		model.addAttribute("regionList",regionList);
-		
-		Country country = countryService.getCountry(countryId);
 		model.addAttribute("country",country);
 		return "modifyCountry";			// 포워딩
 	}

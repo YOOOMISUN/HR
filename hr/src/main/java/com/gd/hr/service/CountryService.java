@@ -55,6 +55,15 @@ public class CountryService implements ICountryService {
 		return countryMapper.deleteCountry(countryId);
 	}
 
+	@Override
+	public List<Country> getCountryIdAndNameList(int regionId) {
+		List<Country> list = countryMapper.selectCountryIdAndNameList(regionId);
+		
+		return list;
+	}
+
+
+
 	
 
 }

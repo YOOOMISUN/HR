@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Location List</title>
+<title>Department List</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -20,29 +20,21 @@
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
 <div>
-	<a href="${pageContext.request.contextPath}/addLocation" style="text-align:center; float:right;">Location 추가</a>
+	<a href="${pageContext.request.contextPath}/addDepartment" style="text-align:center; float:right;">Department 추가</a>
 </div>
 	<table style=" margin-left:auto; margin-right:auto; text-align:center;" class="table table-bordered">
 		<tr>
 			<th>Location Id</th>
-			<th>Street Address</th>
-			<th>Postal Code</th>
-			<th>City</th>
-			<th>State Province</th>
-			<th>Country Id</th>
+			<th>Region Name</th>
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
-		<c:forEach var="location" items="${locationList}">
+		<c:forEach var="r" items="${list}">
 			<tr>
-				<td>${location.LOCATIONID}</td>
-				<td>${location.STREETADDRESS}</td>
-				<td>${location.POSTALCODE}</td>
-				<td>${location.CITY}</td>
-				<td>${location.STATEPROVINCE}</td>
-				<td>${location.COUNTRYID}</td>
-				<td><a href="${pageContext.request.contextPath}/modifyLocation?locationId=${location.LOCATIONId}&streetAddress=${location.STREETADDRESS}">수정</a></td>
-				<td><a href="${pageContext.request.contextPath}/removeLocation?locationId=${location.LOCATIONId}">삭제</a></td>
+				<td>${r.regionId}</td>
+				<td>${r.regionName}</td>
+				<td><a href="${pageContext.request.contextPath}/modifyDepartment?regionId=${r.regionId}&regionName=${r.regionName}">수정</a></td>
+				<td><a href="${pageContext.request.contextPath}/removeDepartment?regionId=${r.regionId}">삭제</a></td>
 			</tr>		
 		</c:forEach>
 	</table>

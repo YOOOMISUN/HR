@@ -44,8 +44,8 @@ public class LocationService implements ILocationService {
 
 	@Override
 	public int removeLocation(int locationId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int re = locationMapper.deleteLocation(locationId);
+		return re;
 	}
 	
 	

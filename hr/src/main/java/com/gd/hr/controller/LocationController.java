@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gd.hr.service.ICountryService;
 import com.gd.hr.service.ILocationService;
@@ -40,7 +41,14 @@ public class LocationController {
 	public String addLocation(Location location) {
 		System.out.println(location.toString());
 		int row = locationService.addLocation(location);
-		System.out.println(row);
+		System.out.println("addLocation : " + row);
+		return "redirect:/locationList";
+	}
+	
+	@GetMapping("/removeLocation")
+	public String removeLocation(@RequestParam(value="locationId") int locationId) {
+		int remove = locationService.removeLocation(locationId);
+		System.out.println("remove : " + remove);
 		return "redirect:/locationList";
 	}
 	

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Location List</title>
+<title>Board List</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <!-- jQuery library -->
@@ -20,32 +20,27 @@
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
 <div>
-	<a href="${pageContext.request.contextPath}/addLocation" style="text-align:center; float:right;">Location 추가</a>
+	<a href="${pageContext.request.contextPath}/addBoard" style="text-align:center; float:right;">Board 추가</a>
 </div>
 	<table style=" margin-left:auto; margin-right:auto; text-align:center;" class="table table-bordered">
 		<tr>
-			<th>Location Id</th>
-			<th>Street Address</th>
-			<th>Postal Code</th>
-			<th>City</th>
-			<th>State Province</th>
-			<th>Country Id</th>
+			<th>Board No</th>
+			<th>Board Title</th>
+			<th>Board Content</th>
+			<th>Board Date</th>
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
-		<c:forEach var="location" items="${locationList}">
-			<tr>
-				<td>${location.LOCATIONID}</td>
-				<td>${location.STREETADDRESS}</td>
-				<td>${location.POSTALCODE}</td>
-				<td>${location.CITY}</td>
-				<td>${location.STATEPROVINCE}</td>
-				<td>${location.COUNTRYID}</td>
-				<td><a href="${pageContext.request.contextPath}/modifyLocation?locationId=${location.LOCATIONId}&streetAddress=${location.STREETADDRESS}&postalCode=${location.POSTALCODE}
-				&city=${location.CITY}&stateProvince=${location.STATEPROVINCE}&countryId=${location.COUNTRYID}">수정</a></td>
-				<td><a href="${pageContext.request.contextPath}/removeLocation?locationId=${location.LOCATIONId}">삭제</a></td>
-			</tr>		
-		</c:forEach>
+			<c:forEach var="b" items="${BoardList}">
+		<tr>
+			<td>${b.BOARDNO}</td>
+			<td>${b.BOARDTITLE}</td>		
+			<td>${b.BOARDCONTENT}</td>		
+			<td>${b.BOARDDATE}</td>		
+			<td><a href="${pageContext.request.contextPath}/modifyBoard?BoardNo=${b.BOARDNO}&BoardTitle=${b.BOARDTITLE}&BoardContent=${country.BOARDCONTENT}&BoardDate=${country.BOARDDATE}">수정</a></td>
+			<td><a href="${pageContext.request.contextPath}/removeBoard?BoardNo=${b.BOARDNO}">삭제</a></td>
+		</tr>
+			</c:forEach>
 	</table>
 	
 	<!-- footer include -->

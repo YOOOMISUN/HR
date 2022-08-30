@@ -71,7 +71,17 @@ public class BoardService implements IBoardService {
 	@Override
 	public List<Map<String, Object>> getBoardList() {
 		List<Map<String, Object>> boardList = boardMapper.selectBoardList();
+		System.out.println("boardList >> " + boardList);
 		return boardList;
+	}
+
+	@Override
+	public int removeBoard(int boardNo) {
+		
+		int row = 0;
+		if(boardfileMapper.deleteBoardFile(boardNo) != 0) {
+			row = boardMapper.deleteBoard(boardNo);};
+		return row;
 	}
 	
 	

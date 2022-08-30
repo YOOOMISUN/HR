@@ -11,4 +11,5 @@ import com.gd.hr.vo.Board;
 public interface BoardMapper {
 	List<Map<String,Object>> selectBoardList();
 	int insertBoard(Board board);
+	int deleteBoard(int boardNo);
 }

@@ -8,4 +8,5 @@ import com.gd.hr.vo.BoardForm;
 public interface IBoardService {
 	List<Map<String, Object>> getBoardList();
 	void addBoard (BoardForm boardForm, String path);
+	int removeBoard(int boardNo);
 }

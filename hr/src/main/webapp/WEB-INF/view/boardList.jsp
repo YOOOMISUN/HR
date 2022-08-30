@@ -37,7 +37,7 @@
 			<td>${b.BOARDTITLE}</td>		
 			<td>${b.BOARDCONTENT}</td>		
 			<td>${b.BOARDDATE}</td>		
-			<td><a href="${pageContext.request.contextPath}/modifyBoard?BoardNo=${b.BOARDNO}&BoardTitle=${b.BOARDTITLE}&BoardContent=${country.BOARDCONTENT}&BoardDate=${country.BOARDDATE}">수정</a></td>
+			<td><a href="${pageContext.request.contextPath}/modifyBoard?BoardNo=${b.BOARDNO}&BoardTitle=${b.BOARDTITLE}&BoardContent=${b.BOARDCONTENT}&BoardDate=${b.BOARDDATE}">수정</a></td>
 			<td><a href="${pageContext.request.contextPath}/removeBoard?BoardNo=${b.BOARDNO}">삭제</a></td>
 		</tr>
 			</c:forEach>

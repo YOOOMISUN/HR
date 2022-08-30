@@ -57,8 +57,7 @@
 <div>
 	<c:import url="/WEB-INF/view/Inc/menu.jsp"></c:import>	<!-- jsp : include  -->
 </div>
-	<form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/addBoard" 
-		id="addBoardForm">
+	<form enctype="multipart/form-data" method="post" action="${pageContext.request.contextPath}/addBoard" id="addBoardForm">
 		<!-- 보드 내용들 -->
 		<div>
 			Board Title

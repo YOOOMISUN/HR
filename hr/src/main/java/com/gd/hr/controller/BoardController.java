@@ -21,9 +21,9 @@ public class BoardController {
 	@GetMapping("/boardList")
 	public String selectBoardList(Model model) {
 		List<Map<String,Object>> list = boardService.getBoardList();
-		model.addAttribute("boardList", list);
+		model.addAttribute("BoardList", list);
+		System.out.println("BoardList >> " + list);
 		return "boardList";
-		
 	}
 	
 	
@@ -41,6 +41,10 @@ public class BoardController {
 		System.out.println("path : " + path);
 		
 		return "redirect:/boardList";
-		
-	}
+		}
+
+	
+
+
+
 }

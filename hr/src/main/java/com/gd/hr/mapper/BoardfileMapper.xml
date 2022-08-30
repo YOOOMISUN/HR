@@ -19,5 +19,8 @@
 		)
 	</insert>
 
+	<delete id="deleteBoardFile" parameterType="int">
+		DELETE FROM boardFile WHERE boardfile_no=#{boardfileNo}
+	</delete>
 
 </mapper>
